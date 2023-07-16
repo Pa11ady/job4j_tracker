@@ -12,7 +12,6 @@ public class Error {
     }
 
     public Error() {
-        this(true, 1, "Default error");
     }
 
     public void printInfo() {
