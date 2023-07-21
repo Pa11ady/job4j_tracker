@@ -44,13 +44,23 @@ public class Tracker {
     }
 
     private int indexOf(int id) {
-        int resutl = -1;
+        int result = -1;
         for (int index = 0; index < size; index++) {
             if (items[index].getId() == id) {
-                resutl = index;
+                result = index;
                 break;
             }
         }
-        return resutl;
+        return result;
+    }
+
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        }
+        System.arraycopy(items, index + 1, items, index, size - index - 1);
+        items[--size] = null;
+        return true;
     }
 }
