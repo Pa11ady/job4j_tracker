@@ -14,7 +14,7 @@ public class Matches {
             do {
                 System.out.println(player + " введите число от 1 до 3:");
                 matches = Integer.parseInt(input.nextLine());
-            } while (matches < 1 || matches > 3 || matches > count);
+            } while (matches < 1 || matches > Math.min(3, count));
             count -= matches;
             turn = !turn;
         }
