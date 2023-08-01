@@ -13,4 +13,11 @@ class FactTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> fact.calc(-1));
         assertThat(exception.getMessage()).isEqualTo("N could not be less than 0");
     }
+
+    @Test
+    public void when3Then6() {
+        Fact fact = new Fact();
+        int result = fact.calc(3);
+        assertThat(result).isEqualTo(6);
+    }
 }
