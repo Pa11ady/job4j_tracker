@@ -33,6 +33,9 @@ public class PasswordValidator {
             } else {
                 hasSpecial = true;
             }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                return password;
+            }
         }
         if (!hasUpCase) {
             throw new IllegalArgumentException(
@@ -49,11 +52,8 @@ public class PasswordValidator {
                     "Password should contain at least one figure"
             );
         }
-        if (!hasSpecial) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one special symbol"
-            );
-        }
-        return password;
+        throw new IllegalArgumentException(
+                "Password should contain at least one special symbol"
+        );
     }
 }
