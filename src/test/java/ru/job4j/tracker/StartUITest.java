@@ -106,7 +106,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", "1"}
         );
-        List<UserAction>  actions = List.of(
+        List<UserAction> actions = List.of(
                 new ShowAllAction(out),
                 new ExitAction()
         );
@@ -161,7 +161,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(one.getId()), "1"}
         );
-        List<UserAction>  actions = List.of(
+        List<UserAction> actions = List.of(
                 new FindByIdAction(out),
                 new ExitAction()
         );
@@ -183,10 +183,10 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"11", "0"}
+                new String[]{"11", "0"}
         );
         Tracker tracker = new Tracker();
-        List <UserAction> actions = List.of(new ExitAction());
+        List<UserAction> actions = List.of(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString()).isEqualTo(
