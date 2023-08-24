@@ -34,8 +34,7 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                int sum = map.getOrDefault(subject.name(), 0) + subject.score();
-                map.put(subject.name(), sum);
+                map.merge(subject.name(), subject.score(), (oldVal, newVal) -> oldVal + subject.score());
             }
         }
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -64,8 +63,7 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new HashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                int sum = map.getOrDefault(subject.name(), 0) + subject.score();
-                map.put(subject.name(), sum);
+                map.merge(subject.name(),  subject.score(), (oldVal, newVal) -> oldVal + subject.score());
             }
         }
         int max = 0;
